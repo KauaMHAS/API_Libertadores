@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CopaHAS.DTOs
+namespace ApiLibertadoresHAS.DTOs
 {
     public class JogoDTO
     {

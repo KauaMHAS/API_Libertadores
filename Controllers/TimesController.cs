@@ -7,7 +7,7 @@ using ApiLibertadoresHAS.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace CopaHAS.Controllers
+namespace ApiLibertadoresHAS.Controllers
 {
     [ApiController]
     [Route("[controller]")]

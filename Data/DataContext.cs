@@ -23,6 +23,8 @@ namespace ApiLibertadoresHAS.Data
         public DbSet<Partida> TB_PARTIDAS { get; set; }
 
         public DbSet<PartidaTime> TB_PARTIDAS_TIMES { get; set; }
+
+        public DbSet<Usuario> TB_USUARIOS {get; set;}
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
             
@@ -195,6 +197,48 @@ namespace ApiLibertadoresHAS.Data
                     .WithMany(e => e.PartidaTimes)
                     .HasForeignKey(e => e.TimeId)
                     .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            #endregion
+
+            #region TB_USUARIOS
+
+            modelBuilder.Entity<Usuario>(entity =>
+            {
+                entity.ToTable("TB_USUARIOS");
+
+                entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.Username)
+                    .HasMaxLength(50)
+                    .IsRequired();
+
+                entity.Property(e => e.PasswordHash)
+                    .IsRequired(false);
+
+                entity.Property(e => e.PasswordSalt)
+                    .IsRequired(false);
+
+                entity.Property(e => e.Foto)
+                    .IsRequired(false);
+
+                entity.Property(e => e.Latitude)
+                    .IsRequired(false);
+
+                entity.Property(e => e.Longitude)
+                    .IsRequired(false);
+
+                entity.Property(e => e.DataAcesso)
+                    .IsRequired(false);
+
+                entity.Property(e => e.Perfil)
+                    .HasMaxLength(50)
+                    .HasDefaultValue("UsuarioComum")
+                    .IsRequired();
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(50)
+                    .IsRequired(false);
             });
 
             #endregion

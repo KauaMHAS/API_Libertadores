@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ApiLibertadoresHAS.Data;
-using CopaHAS.DTOs;
+using ApiLibertadoresHAS.DTOs;
 using ApiLibertadoresHAS.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

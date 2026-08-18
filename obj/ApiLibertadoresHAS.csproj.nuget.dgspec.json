@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\JúliaKauã3AI\\PAM\\Aula03\\ApiLibertadoresHAS\\ApiLibertadoresHAS.csproj": {}
+    "D:\\3 AI\\PAM2\\3Bimestre\\aula04\\aula04\\APILibertadoresHAS\\ApiLibertadoresHAS.csproj": {}
   },
   "projects": {
-    "D:\\JúliaKauã3AI\\PAM\\Aula03\\ApiLibertadoresHAS\\ApiLibertadoresHAS.csproj": {
+    "D:\\3 AI\\PAM2\\3Bimestre\\aula04\\aula04\\APILibertadoresHAS\\ApiLibertadoresHAS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\JúliaKauã3AI\\PAM\\Aula03\\ApiLibertadoresHAS\\ApiLibertadoresHAS.csproj",
+        "projectUniqueName": "D:\\3 AI\\PAM2\\3Bimestre\\aula04\\aula04\\APILibertadoresHAS\\ApiLibertadoresHAS.csproj",
         "projectName": "ApiLibertadoresHAS",
-        "projectPath": "D:\\JúliaKauã3AI\\PAM\\Aula03\\ApiLibertadoresHAS\\ApiLibertadoresHAS.csproj",
-        "packagesPath": "D:\\NUGET_PACKAGES",
-        "outputPath": "D:\\JúliaKauã3AI\\PAM\\Aula03\\ApiLibertadoresHAS\\obj\\",
+        "projectPath": "D:\\3 AI\\PAM2\\3Bimestre\\aula04\\aula04\\APILibertadoresHAS\\ApiLibertadoresHAS.csproj",
+        "packagesPath": "C:\\Users\\ACER_NITRO\\.nuget\\packages\\",
+        "outputPath": "D:\\3 AI\\PAM2\\3Bimestre\\aula04\\aula04\\APILibertadoresHAS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\etechas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER_NITRO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -46,7 +46,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.300"
+        "SdkAnalysisLevel": "10.0.400"
       },
       "frameworks": {
         "net10.0": {
@@ -87,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
