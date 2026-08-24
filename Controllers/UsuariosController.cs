@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 using ApiLibertadoresHAS.Data;
 using ApiLibertadoresHAS.Models;
 using ApiLibertadoresHAS.Utils;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
+using System.Text;
 
 namespace ApiLibertadoresHAS.Controllers
 {
@@ -16,9 +20,33 @@ namespace ApiLibertadoresHAS.Controllers
     {
         private readonly DataContext _context;
 
-        public UsuariosController(DataContext context)
+        private readonly IConfiguration _configuration;
+
+        public UsuariosController(DataContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
+        }
+
+        private string CriarToken(Usuario usuario)
+        {
+            List<Claim> claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()),
+                new Claim(ClaimTypes.Name, usuario.Username)
+            };
+            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8
+            .GetBytes(_configuration.GetSection("ConfiguracaoToken:Chave").Value));
+            SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+            SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(claims),
+                Expires = DateTime.Now.AddDays(1),
+                SigningCredentials = creds
+            };
+            JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
+            SecurityToken token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
         }
 
         private async Task<bool> UsuarioExistente(string username)
@@ -84,6 +112,7 @@ namespace ApiLibertadoresHAS.Controllers
                 usuario.PasswordString = string.Empty;
                 usuario.PasswordHash = null;
                 usuario.PasswordSalt = null;
+                usuario.Token = CriarToken(usuario);
 
                 return Ok(usuario);
             }

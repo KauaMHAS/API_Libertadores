@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\3 AI\\PAM2\\3Bimestre\\aula04\\aula04\\APILibertadoresHAS\\ApiLibertadoresHAS.csproj": {}
+    "D:\\JúliaKauã3AI\\aula04\\aula04\\ApiLibertadoresHAS\\ApiLibertadoresHAS.csproj": {}
   },
   "projects": {
-    "D:\\3 AI\\PAM2\\3Bimestre\\aula04\\aula04\\APILibertadoresHAS\\ApiLibertadoresHAS.csproj": {
+    "D:\\JúliaKauã3AI\\aula04\\aula04\\ApiLibertadoresHAS\\ApiLibertadoresHAS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\3 AI\\PAM2\\3Bimestre\\aula04\\aula04\\APILibertadoresHAS\\ApiLibertadoresHAS.csproj",
+        "projectUniqueName": "D:\\JúliaKauã3AI\\aula04\\aula04\\ApiLibertadoresHAS\\ApiLibertadoresHAS.csproj",
         "projectName": "ApiLibertadoresHAS",
-        "projectPath": "D:\\3 AI\\PAM2\\3Bimestre\\aula04\\aula04\\APILibertadoresHAS\\ApiLibertadoresHAS.csproj",
-        "packagesPath": "C:\\Users\\ACER_NITRO\\.nuget\\packages\\",
-        "outputPath": "D:\\3 AI\\PAM2\\3Bimestre\\aula04\\aula04\\APILibertadoresHAS\\obj\\",
+        "projectPath": "D:\\JúliaKauã3AI\\aula04\\aula04\\ApiLibertadoresHAS\\ApiLibertadoresHAS.csproj",
+        "packagesPath": "D:\\NUGET_PACKAGES",
+        "outputPath": "D:\\JúliaKauã3AI\\aula04\\aula04\\ApiLibertadoresHAS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ACER_NITRO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\etechas\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -46,13 +46,17 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.400"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net10.0": {
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[10.0.11, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[10.0.8, )"
@@ -66,6 +70,14 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[10.0.5, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.22.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.22.0, )"
             }
           },
           "imports": [
@@ -87,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.400/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
