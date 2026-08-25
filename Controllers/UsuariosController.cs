@@ -11,9 +11,11 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ApiLibertadoresHAS.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class UsuariosController : ControllerBase
@@ -33,10 +35,10 @@ namespace ApiLibertadoresHAS.Controllers
             List<Claim> claims = new List<Claim>
             {
                 new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()),
-                new Claim(ClaimTypes.Name, usuario.Username)
+                new Claim(ClaimTypes.Name, usuario.Username),
+                new Claim(ClaimTypes.Role, usuario.Perfil)
             };
-            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8
-            .GetBytes(_configuration.GetSection("ConfiguracaoToken:Chave").Value));
+            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("ConfiguracaoToken:Chave").Value));
             SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
             SecurityTokenDescriptor tokenDescriptor = new SecurityTokenDescriptor
             {
@@ -60,6 +62,7 @@ namespace ApiLibertadoresHAS.Controllers
             return false;
         }
 
+        [AllowAnonymous]
         [HttpPost("Registrar")]
         public async Task<IActionResult> RegistrarUsuario(Usuario user)
         {
@@ -88,6 +91,7 @@ namespace ApiLibertadoresHAS.Controllers
             }
         }
 
+        [AllowAnonymous]
         [HttpPost("Autenticar")]
         public async Task<IActionResult> AutenticarUsuario(Usuario credenciais)
         {
@@ -133,7 +137,7 @@ namespace ApiLibertadoresHAS.Controllers
                 return Ok(lista);
             }
             catch (System.Exception ex)
-            {
+            { 
                 return BadRequest(ex.Message + " - " + ex.InnerException);
             }
         }

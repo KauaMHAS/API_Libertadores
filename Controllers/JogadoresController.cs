@@ -5,11 +5,13 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using ApiLibertadoresHAS.Data;
 using ApiLibertadoresHAS.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace ApiLibertadoresHAS.Controllers
 {
+    [Authorize(Roles ="UsuarioComum, Admin")]
     [ApiController]
     [Route("[controller]")]
     public class JogadoresController : ControllerBase
