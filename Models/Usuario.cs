@@ -5,6 +5,8 @@ namespace ApiLibertadoresHAS.Models
 {
     public class Usuario
     {
+        public ICollection<Jogador> Jogadores {get;set;}
+            = new List<Jogador>();
         public int Id { get; set; }
 
         public string Username { get; set; }

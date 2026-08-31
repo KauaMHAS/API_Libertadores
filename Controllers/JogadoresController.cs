@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using ApiLibertadoresHAS.Data;
+using ApiLibertadoresHAS.Extensions;
 using ApiLibertadoresHAS.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -61,6 +62,9 @@ namespace ApiLibertadoresHAS.Controllers
                 if (novoJogador.Numero >= 100)
                     return BadRequest("Número da camisa não pode ser maior/igual a 100.");
 
+                novoJogador.Usuario = await _context.TB_USUARIOS
+                    .FirstOrDefaultAsync(usuario => usuario.Id == User.UsuarioId());
+
                 await _context.TB_JOGADORES.AddAsync(novoJogador);
                 await _context.SaveChangesAsync();
 
@@ -79,6 +83,9 @@ namespace ApiLibertadoresHAS.Controllers
             {
                 if (jogador.Numero >= 100)
                     return BadRequest("Número da camisa não pode ser maior/igual a 100.");
+
+                jogador.Usuario = await _context.TB_USUARIOS
+                    .FirstOrDefaultAsync(usuario => usuario.Id == User.UsuarioId());
 
                 _context.TB_JOGADORES.Update(jogador);
                 int linhasAfetadas = await _context.SaveChangesAsync();
@@ -102,6 +109,23 @@ namespace ApiLibertadoresHAS.Controllers
                 _context.TB_JOGADORES.Remove(jRemover);
                 int linhaAfetadas = await _context.SaveChangesAsync();
                 return Ok(linhaAfetadas);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message + " - " + ex.InnerException);
+            }
+        }
+
+        [HttpGet("GetByUser")]
+        public async Task<IActionResult> GetByUserAsync()
+        {
+            try
+            {
+                int id = User.UsuarioId();
+                List<Jogador> lista = await _context.TB_JOGADORES
+                    .Where(u => u.Usuario.Id == id).ToListAsync();
+                return Ok(lista);
+
             }
             catch (System.Exception ex)
             {

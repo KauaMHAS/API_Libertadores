@@ -1,0 +1,16 @@
+ALTER TABLE TB_JOGADORES
+ADD UsuarioId INT NULL;
+go
+UPDATE TB_JOGADORES
+SET UsuarioId = 1;
+go
+ALTER TABLE TB_JOGADORES
+ALTER COLUMN UsuarioId INT NOT NULL;
+go
+ALTER TABLE TB_JOGADORES
+ADD CONSTRAINT FK_JOGADORES_USUARIOS
+FOREIGN KEY (UsuarioId)
+REFERENCES TB_USUARIOS(Id);
+--Executar esse somente se não tiver mais de 1 usuário na sua base.
+--go
+--UPDATE TB_USUARIOS SET Perfil = 'Admin' where Id = 1;

@@ -7,6 +7,8 @@ namespace ApiLibertadoresHAS.Models
 {
     public class Jogador
     {
+        public int UsuarioId {get; set; }
+        public Usuario Usuario {get; set; } = null! ;
         public int Id { get; set; }
 
         public string Nome { get; set; } = string.Empty;

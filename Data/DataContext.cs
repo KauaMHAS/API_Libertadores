@@ -105,6 +105,11 @@ namespace ApiLibertadoresHAS.Data
 
                 entity.Property(e => e.DataNascimento)
                     .HasColumnType("date");
+
+                entity.HasOne(e => e.Usuario)
+                .WithMany(e => e.Jogadores)
+                .HasForeignKey(e => e.UsuarioId)
+                .OnDelete(DeleteBehavior.Restrict);
             });
 
             #endregion
